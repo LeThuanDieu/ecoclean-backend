@@ -18,10 +18,9 @@ public class User {
     private String email;
 
     private String password;
-    private String fullName;
-    private String role;
+    private String role; //ADMIN, STAFF, STUDENT
 
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
-    private List<Booking> bookings;
+//    @OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
+//    private List<Student> studentList;
 
 }
