@@ -18,7 +18,7 @@ public class Activity {
 
     private String nameActivity;
     private String location;
-    private LocalDate dateTime;
+    private String dateTime;
     private int score;
 
 //    @OneToMany(mappedBy = "activity",cascade = CascadeType.ALL)

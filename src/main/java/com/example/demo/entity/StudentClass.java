@@ -11,6 +11,7 @@ public class StudentClass {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nameClass;
+    
     @ManyToOne
     @JoinColumn(name="faculty_id")
     private Faculty facultyList;
