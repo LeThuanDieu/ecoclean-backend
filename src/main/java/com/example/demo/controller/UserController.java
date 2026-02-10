@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 
+import com.example.demo.dto.UserDTO;
 import com.example.demo.entity.User;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,12 @@ public class UserController{
     private UserService userService;
 
     @PostMapping("/register")
-    public ResponseEntity<User> register(@RequestBody User user){
-        return ResponseEntity.ok(userService.registerUser(user));
+    public ResponseEntity<?> register(@RequestBody UserDTO userDTO){
+       try {
+        User user = userService.registerUser(userDTO);
+        return ResponseEntity.ok(user);
+       } catch (Exception e) {
+        return ResponseEntity.badRequest().body(e.getMessage());
+       }
     }
 }

@@ -18,7 +18,10 @@ public class SecurityConfig {
 
                 // 2. Cấu hình quyền truy cập
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/**").permitAll() // Cho phép tất cả các API bắt đầu bằng /api/ được truy cập tự do
+                        .requestMatchers("/api/**",
+                        "/v3/api-docs/**",
+                        "/swagger-ui/**",
+                        "/swagger-ui.html").permitAll() // Cho phép tất cả các API bắt đầu bằng /api/ được truy cập tự do
                         .anyRequest().authenticated()           // Các yêu cầu khác vẫn phải đăng nhập
                 );
 
