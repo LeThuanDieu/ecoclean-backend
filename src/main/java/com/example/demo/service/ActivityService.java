@@ -22,6 +22,7 @@ public class ActivityService {
         Activity activity = new Activity();
         activity.setNameActivity(activityDTO.getActivityName());
         activity.setDateTime(activityDTO.getDateTime());
+        activity.setLocation(activityDTO.getLocation());
         activity.setScore(activityDTO.getScore());
         return activityRepository.save(activity);
     }
@@ -30,6 +31,7 @@ public class ActivityService {
         Activity activity = activityRepository.findById(id).orElseThrow(() -> new RuntimeException("Không tìm thấy id "));
         activity.setNameActivity(activityDTO.getActivityName());
         activity.setDateTime(activityDTO.getDateTime());
+        activity.setLocation(activityDTO.getLocation());
         activity.setScore(activityDTO.getScore());
         return activityRepository.save(activity);
     }
@@ -41,6 +43,9 @@ public class ActivityService {
             throw new RuntimeException("Không tìm thấy hoạt động !");
         }
         activityRepository.deleteById(id);
+    }
+    public void findActivityByDate(String daString){
+        
     }
 }
 

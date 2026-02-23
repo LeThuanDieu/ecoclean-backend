@@ -50,4 +50,9 @@ public class UserService {
         // user.setRole(userDTO.getRole());
         // return userRepository.save(user);
     }
+    public User resetPassword(String email, String newPass){
+        User user = userRepository.findByEmail(email).orElseThrow(()-> new RuntimeException("Không tìm thấy người dùng"));
+        user.setPassword(newPass);
+        return userRepository.save(user);
+    }
 }

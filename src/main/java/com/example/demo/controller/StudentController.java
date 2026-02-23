@@ -16,6 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/students")
+@CrossOrigin(origins = "*")
 @Tag(name = "Student Controller", description = "Danh sách sinh viên" )
 public class StudentController {
     @Autowired
